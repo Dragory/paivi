@@ -1,34 +1,20 @@
+const Sequelize = require('sequelize');
 const DB = require('../db');
 
 const Stats = DB.define('stats', {
-	chatId: {
-		type: DB.INTEGER,
-		field: 'chat_id'
-	},
-	userId: {
-		type: DB.INTEGER,
-		field: 'user_id'
-	},
-	messages: DB.INTEGER,
-	letters: DB.INTEGER,
-	uppercaseLetters: {
-		type: DB.INTEGER,
-		field: 'uppercase_letters'
-	},
-	lowercaseLetters: {
-		type: DB.INTEGER,
-		field: 'lowercase_letters'
-	},
-	quote: DB.STRING(128),
-	quoteQueue: {
-		type: DB.TEXT,
-		field: 'quote_queue'
-	},
-	arrivalDate: {
-		type: DB.DATE
-	}
+	chatId: Sequelize.INTEGER,
+	userId: Sequelize.INTEGER,
+	messages: Sequelize.INTEGER,
+	letters: Sequelize.INTEGER,
+	uppercaseLetters: Sequelize.INTEGER,
+	lowercaseLetters: Sequelize.INTEGER,
+	quote: Sequelize.STRING(128),
+	quoteQueue: Sequelize.TEXT,
+	arrivalDate: Sequelize.DATE,
 }, {
 	freezeTableName: true
 });
+
+Stats.belongsTo('users', {foreign_key: 'userId'});
 
 module.exports = Stats;

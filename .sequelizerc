@@ -1,0 +1,7 @@
+const path = require('path');
+
+module.exports = {
+	'env': 'default',
+	'config': process.cwd() + '/db.json',
+	'migrations-path': process.cwd() + '/migrations'
+};

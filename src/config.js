@@ -1,7 +1,9 @@
 const rawConfig = require('../config.json');
+const dbConfig = require('../db.json');
+
 const defaults = {
 	"token": null,
-	"database": {}
+	"database": dbConfig.default
 };
 
 const deepExtend = (target, ...sources) => {
