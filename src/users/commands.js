@@ -1,9 +1,10 @@
 const Users = require('./Users');
+const moment = require('moment');
 
 let knownUsers = {};
 
-module.exports = (Bot) => {
-	Bot.on('message', msg => {
+module.exports = (bot) => {
+	bot.on('message', (msg, next) => {
 		const props = {
 			username: msg.from.username,
 			firstName: msg.from.first_name,
@@ -19,5 +20,7 @@ module.exports = (Bot) => {
 				}, props));
 			}
 		});
+
+		next();
 	});
 };

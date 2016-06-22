@@ -9,14 +9,13 @@ module.exports = {
         autoIncrement: true
       },
 
-      chatId: Sequelize.INTEGER,
-      userId: Sequelize.INTEGER,
-      messages: Sequelize.INTEGER,
-      letters: Sequelize.INTEGER,
-      uppercaseLetters: Sequelize.INTEGER,
-      lowercaseLetters: Sequelize.INTEGER,
-      quote: Sequelize.STRING(128),
-      quoteQueue: Sequelize.TEXT,
+      chatId: {type: Sequelize.INTEGER, defaultValue: 0},
+      userId: {type: Sequelize.INTEGER, defaultValue: 0},
+      messages: {type: Sequelize.INTEGER, defaultValue: 0},
+      letters: {type: Sequelize.INTEGER, defaultValue: 0},
+      uppercaseLetters: {type: Sequelize.INTEGER, defaultValue: 0},
+      lowercaseLetters: {type: Sequelize.INTEGER, defaultValue: 0},
+      words: {type: Sequelize.INTEGER, defaultValue: 0},
       arrivalDate: Sequelize.DATE,
 
       createdAt: Sequelize.DATE,
